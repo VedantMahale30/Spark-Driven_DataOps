@@ -218,5 +218,7 @@ nov_df = new2_df.drop("client_id", "card_id")
 
 #final_data_path = "/user/spark/vedant/project_data/" + current_date + "/Final_transformed_with_joins_csv.csv"
 
-# Write the final DataFrame to a CSV file
-nov_df.repartition(5).write.option("header", "true").csv("/user/spark/vedant/project_data/final_data.csv")
+# Write the final DataFrame to a Parquete file
+#nov_df.repartition(5).write.option("header", "true").csv("/user/spark/vedant/project_data/final_data.csv")
+nov_df.repartition(5).write.option("header", "true").parquet("/user/spark/vedant/project_data/final_data.parquet")
+
